@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fresh Fruit Drinks - Home</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img id="logo-1" src="logo.png" alt="Fresh Fruit Drinks Logo">
+                <nav>
+                  <h1 class="logo-2">Bountiful Foods</h1>
+                  <div class="hamburger-menu" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <ul class="nav-links">
+                    <li ><a href="index.html">Home</a></li>
+                    <li class="active"><a href="fresh.html">Fresh</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </nav>         
+	</header>
+	<main>
+        <fieldset>
+        <h1>Fresh - Build Your Own Specialty Drink</h1>
+        <form id="drinkForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <br><br>
+        
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" required>
+            <br><br>
+        
+            <label for="fruit1">Fruit 1:</label>
+            <select id="fruit1" required></select>
+            <br><br>
+        
+            <label for="fruit2">Fruit 2:</label>
+            <select id="fruit2" required></select>
+            <br><br>
+        
+            <label for="fruit3">Fruit 3:</label>
+            <select id="fruit3" required></select>
+            <br><br>
+        
+            <label for="specialInstructions">Special Instructions:</label>
+            <textarea id="specialInstructions"></textarea>
+            <br><br>
+        
+            <input type="submit" value="Submit">
+        </form>
+    </fieldset>
+        <div class="output" id="output"></div>
+        <section class="social-media">
+            <h2>Connect with us on Social Media</h2>
+            <div class="social-media-links">
+				<a id="facebook"  href="https://facebook.com"><img src="facebook.png" alt="Facebook image to access to facebook"></a>
+				<a id="twitter" href="https://twitter.com"><img src="twitter.png" alt="Twitter icon that will allow us to login to twitter"></a>
+				<a id="instagram" href="https://instagram.com"><img src="instagram.png" alt="Instagram icon that will allow us to access to Instagram"></a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="address">
+            <p>19369 Cabrillo Hwy S, San Gregorio, CA 94074, Estados Unidos</p>
+        </div>
+		<div class="map" id="map"></div>
+
+        <div class="contact-info">
+            <p>Reiquel Carela</p>
+            <p>Phone: 475-781-7858</p>
+        </div>
+        <div class="current-date">
+            <p>&copy; 2023 Fresh Fruit Drinks</p>
+            <p>Current Date: March 30, 2023</p>
+        </div>
+    </footer>
+	<script src="scripts"></script>
+    <script src="fruits.js"></script>
+	
+    </body>
+</html> 

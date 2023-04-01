@@ -1,0 +1,125 @@
+
+function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('open');
+}
+
+// 2. Display Google Maps with a specific location based on the address class
+function initMap() {
+  const location = { lat: 37.322893, lng: -122.364136 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 12,
+      center: location,
+  });
+  const marker = new google.maps.Marker({
+      position: location,
+      map: map,
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const script = document.createElement('script');
+  script.src = `https://maps.googleapis.com/maps/api/js?key=6c47d86714cc5f48cdb8def945c1223d&callback=initMap`;
+  script.async = true;
+  script.defer = true;
+  document.body.appendChild(script);
+});
+
+
+
+// 3. Update the current date in the footer
+function updateCurrentDate() {
+  const currentDateElement = document.querySelector('.current-date p:nth-child(2)');
+  const currentDate = new Date();
+  const dateString = `${currentDate.toLocaleString('en-us', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+  currentDateElement.textContent = `Current Date: ${dateString}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateCurrentDate();
+});
+
+
+// script.js
+
+// ...
+
+// Fetch weather data from OpenWeatherMap API
+async function fetchWeatherData(location) {
+  const apiKey = 'd9ec43e5a59355aacaf62acdc4fafd2e';
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const weatherData = await response.json();
+    displayWeatherData(weatherData);
+  } else {
+    alert('Error fetching weather data');
+  }
+}
+
+function displayWeatherData(weatherData) {
+  // Display current temperature
+  const tempElement = document.querySelector('.weather-card p:nth-child(1)');
+  tempElement.textContent = `Current Temperature: ${weatherData.main.temp.toFixed(1)}°C`;
+
+  // Display condition description
+  const conditionElement = document.querySelector('.weather-card p:nth-child(2)');
+  conditionElement.textContent = `Condition Description: ${weatherData.weather[0].description}`;
+
+  // Display humidity
+  const humidityElement = document.querySelector('.weather-card p:nth-child(3)');
+  humidityElement.textContent = `Humidity: ${weatherData.main.humidity}%`;
+}
+
+// Fetch 3-day temperature forecast from OpenWeatherMap API
+async function fetchForecastData(location) {
+  const apiKey = 'd9ec43e5a59355aacaf62acdc4fafd2e';
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&cnt=24&appid=${apiKey}`;
+  const response = await fetch(url);
+
+  if (response.ok) {
+    const forecastData = await response.json();
+    displayForecastData(forecastData);
+  } else {
+    alert('Error fetching forecast data');
+  }
+}
+
+function displayForecastData(forecastData) {
+  const forecastList = forecastData.list;
+  const dailyForecast = [];
+
+  for (let i = 0; i < forecastList.length; i += 8) {
+    dailyForecast.push({
+      day: new Date(forecastList[i].dt_txt).toLocaleDateString('en-us', { weekday: 'long' }),
+      temp: forecastList[i].main.temp.toFixed(1),
+    });
+  }
+
+  const forecastElement = document.querySelector('.forecast ul');
+  dailyForecast.forEach((item, index) => {
+    forecastElement.children[index].textContent = `${item.day}: ${item.temp}°C`;
+  });
+}
+
+// ...
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateCurrentDate();
+  fetchWeatherData('Carlsbad,US');
+  fetchForecastData('Carlsbad,US');
+});
+
+
+
+
+
+
+
+
+  
+
+
+  
+
