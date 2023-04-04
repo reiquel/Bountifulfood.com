@@ -4,27 +4,6 @@ function toggleMenu() {
   navLinks.classList.toggle('open');
 }
 
-// 2. Display Google Maps with a specific location based on the address class
-function initMap() {
-  const location = { lat: 37.322893, lng: -122.364136 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 12,
-      center: location,
-  });
-  const marker = new google.maps.Marker({
-      position: location,
-      map: map,
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=6c47d86714cc5f48cdb8def945c1223d&callback=initMap`;
-  script.async = true;
-  script.defer = true;
-  document.body.appendChild(script);
-});
-
 
 
 // 3. Update the current date in the footer

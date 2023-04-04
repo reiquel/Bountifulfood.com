@@ -3,7 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -246,12 +246,29 @@ footer{
 form {
   width: 100%;
   max-width: 400px;
+  font-size: 30px;
+  background-color:  #ccc;
   margin: 0 auto;
+}
+
+fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 2px;
+  border-style: groove;
+  border-color: rgb(192, 192, 192);
+  border-image: initial;
 }
 .output {
   margin-top: 20px;
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 50px;
 }
 
 /* About us page styling */
@@ -265,7 +282,20 @@ form {
   margin-bottom: 1.5rem;
 }
 @media (min-width: 768px) {
-
+  fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+  }
   .logo-2 { font-size: 30px;
     color: #F6BE9A;
    }
@@ -329,6 +359,21 @@ form {
 }
 
 @media (min-width: 1200px) {
+
+  fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+  }
   .coastal-areas {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
