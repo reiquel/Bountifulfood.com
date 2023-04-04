@@ -254,6 +254,16 @@ form {
   padding: 20px;
 }
 
+/* About us page styling */
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+#map-container {
+  margin-bottom: 1.5rem;
+}
 @media (min-width: 768px) {
 
   .logo-2 { font-size: 30px;
