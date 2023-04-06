@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
       totalDrinks++;
       localStorage.setItem("totalDrinks", totalDrinks);
-      window.location.href = "index.html";
     });
   });
   
