@@ -6,22 +6,6 @@ function toggleMenu() {
 
 
 
-// 3. Update the current date in the footer
-function updateCurrentDate() {
-  const currentDateElement = document.querySelector('.current-date p:nth-child(2)');
-  const currentDate = new Date();
-  const dateString = `${currentDate.toLocaleString('en-us', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
-  currentDateElement.textContent = `Current Date: ${dateString}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateCurrentDate();
-});
-
-
-// script.js
-
-// ...
 
 // Fetch weather data from OpenWeatherMap API
 async function fetchWeatherData(location) {
@@ -81,24 +65,4 @@ function displayForecastData(forecastData) {
     forecastElement.children[index].textContent = `${item.day}: ${item.temp}°C`;
   });
 }
-
-// ...
-
-document.addEventListener('DOMContentLoaded', () => {
-  updateCurrentDate();
-  fetchWeatherData('Carlsbad,US');
-  fetchForecastData('Carlsbad,US');
-});
-
-
-
-
-
-
-
-
-  
-
-
-  
 
