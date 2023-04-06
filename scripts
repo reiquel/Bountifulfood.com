@@ -4,65 +4,46 @@ function toggleMenu() {
   navLinks.classList.toggle('open');
 }
 
+// Replace YOUR_API_KEY with your actual OpenWeatherMap API key
+const apiKey = 'd9ec43e5a59355aacaf62acdc4fafd2e';
+const city = 'Carlsbad';
+const units = 'imperial'; // Use 'metric' for Celsius
 
+// Query URLs
+const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
 
+// Fetch current weather data
+fetch(currentWeatherUrl)
+  .then(response => response.json())
+  .then(data => {
+    const temperature = data.main.temp;
+    const description = data.weather[0].description;
+    const humidity = data.main.humidity;
 
-// Fetch weather data from OpenWeatherMap API
-async function fetchWeatherData(location) {
-  const apiKey = 'd9ec43e5a59355aacaf62acdc4fafd2e';
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const weatherData = await response.json();
-    displayWeatherData(weatherData);
-  } else {
-    alert('Error fetching weather data');
-  }
-}
-
-function displayWeatherData(weatherData) {
-  // Display current temperature
-  const tempElement = document.querySelector('.weather-card p:nth-child(1)');
-  tempElement.textContent = `Current Temperature: ${weatherData.main.temp.toFixed(1)}°C`;
-
-  // Display condition description
-  const conditionElement = document.querySelector('.weather-card p:nth-child(2)');
-  conditionElement.textContent = `Condition Description: ${weatherData.weather[0].description}`;
-
-  // Display humidity
-  const humidityElement = document.querySelector('.weather-card p:nth-child(3)');
-  humidityElement.textContent = `Humidity: ${weatherData.main.humidity}%`;
-}
-
-// Fetch 3-day temperature forecast from OpenWeatherMap API
-async function fetchForecastData(location) {
-  const apiKey = 'd9ec43e5a59355aacaf62acdc4fafd2e';
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&cnt=24&appid=${apiKey}`;
-  const response = await fetch(url);
-
-  if (response.ok) {
-    const forecastData = await response.json();
-    displayForecastData(forecastData);
-  } else {
-    alert('Error fetching forecast data');
-  }
-}
-
-function displayForecastData(forecastData) {
-  const forecastList = forecastData.list;
-  const dailyForecast = [];
-
-  for (let i = 0; i < forecastList.length; i += 8) {
-    dailyForecast.push({
-      day: new Date(forecastList[i].dt_txt).toLocaleDateString('en-us', { weekday: 'long' }),
-      temp: forecastList[i].main.temp.toFixed(1),
-    });
-  }
-
-  const forecastElement = document.querySelector('.forecast ul');
-  dailyForecast.forEach((item, index) => {
-    forecastElement.children[index].textContent = `${item.day}: ${item.temp}°C`;
+    document.querySelector('.weather-card p:nth-child(1)').textContent = `Current Temperature: ${temperature}°F`;
+    document.querySelector('.weather-card p:nth-child(2)').textContent = `Condition Description: ${description}`;
+    document.querySelector('.weather-card p:nth-child(3)').textContent = `Humidity: ${humidity}%`;
+  })
+  .catch(error => {
+    console.error('Error fetching current weather data:', error);
   });
-}
+
+// Fetch 3-day forecast data
+fetch(forecastUrl)
+  .then(response => response.json())
+  .then(data => {
+    const forecastList = data.list;
+    const dailyData = forecastList.filter((item, index) => index % 8 === 0);
+    const forecastElements = document.querySelectorAll('.forecast ul li');
+
+    for (let i = 0; i < 3; i++) {
+      const temp = dailyData[i].main.temp;
+      forecastElements[i].textContent = `Day ${i + 1}: ${temp}°F`;
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching forecast data:', error);
+  });
+
 

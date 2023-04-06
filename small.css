@@ -115,7 +115,9 @@ main {
   font-weight: bold;
   font-size: 48px;
 }
-
+#text-id{
+  text-align: center;
+}
 h2 {
   text-align: center;
 }
