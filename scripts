@@ -6,6 +6,13 @@ function toggleMenu() {
 
 
 
+// 3. Update the current date in the footer
+function updateCurrentDate() {
+  const currentDateElement = document.querySelector('.current-date p:nth-child(2)');
+  const currentDate = new Date();
+  const dateString = `${currentDate.toLocaleString('en-us', { month: 'long' })} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
+  currentDateElement.textContent = `Current Date: ${dateString}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   updateCurrentDate();
