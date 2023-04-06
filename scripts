@@ -47,3 +47,18 @@ fetch(forecastUrl)
   });
 
 
+// updated.js
+document.addEventListener("DOMContentLoaded", function () {
+  const infoCard = document.querySelector(".info-card");
+
+  let totalDrinks = localStorage.getItem("totalDrinks");
+  if (totalDrinks === null) {
+    totalDrinks = 0;
+  } else {
+    totalDrinks = parseInt(totalDrinks);
+  }
+
+  const p = document.createElement("p");
+  p.textContent = `Total Number of Specialty Drinks Submitted: ${totalDrinks}`;
+  infoCard.appendChild(p);
+});

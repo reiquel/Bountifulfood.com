@@ -39,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return date.toISOString().split('T')[0];
     }
 
+    let drinkCount = localStorage.getItem('submittedDrinkCount') || 0;
+    drinkCount++;
+    localStorage.setItem('submittedDrinkCount', drinkCount);
+
     function handleSubmit(event) {
         event.preventDefault();
 
@@ -82,3 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     populateFruitOptions();
 });
+
+
+// scripts.js
+document.addEventListener("DOMContentLoaded", function () {
+    const drinkForm = document.getElementById("drinkForm");
+  
+    // Update the total number of submitted specialty drinks on form submission
+    drinkForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      let totalDrinks = localStorage.getItem("totalDrinks");
+      if (totalDrinks === null) {
+        totalDrinks = 0;
+      } else {
+        totalDrinks = parseInt(totalDrinks);
+      }
+  
+      totalDrinks++;
+      localStorage.setItem("totalDrinks", totalDrinks);
+      window.location.href = "index.html";
+    });
+  });
+  
