@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const lazyImages = [].slice.call(document.querySelectorAll("img[id='image-ft']"));
+    const lazyImages = [].slice.call(document.querySelectorAll("img[class='image-ft']"));
   
     const config = {
       rootMargin: "0px",
