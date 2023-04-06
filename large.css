@@ -1,120 +1,83 @@
-@media (min-width: 1024px) {
 
-  body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-  }
 
-  h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    margin: 0;
-  }
+@media (min-width: 1200px) {
 
-  h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0;
-  }
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 16px;
-  }
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 16px -16px;
-  }
-  .col {
-    flex-basis: calc(100% / 3 - 32px);
-    margin: 16px;
-  }
-  .logo {
+  form {
     width: 100%;
     max-width: 400px;
+    font-size: 25px;
+    background-color:  #ccc;
+    margin: 0 auto;
   }
-  .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
+
+  fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
   }
-  .header-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 16px;
-    font-size: 18px;
+  .coastal-areas {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-  .header-nav a:first-child {
-    margin-left: 0;
+  .weather-1 { grid-area: top; }
+  .weather-card { grid-area: menu; }
+  .forecast { grid-area: right; }
+  
+  
+  .weather {
+    display: grid;
+    grid-template-areas:
+    'top top top top top'
+    'menu menu  right right right';}
+
+ 
+  .logo-2 { font-size: 30px;
+    color: #F6BE9A;
+   }
+  .nav-links { 
+    font-size: 30px;
+    border-radius: 28px;
   }
-  .weather-card {
-    background-color: #2F2704;
-    color: #fff;
-    padding: 16px;
-    margin-bottom: 32px;
+
+#logo-1 { grid-area: top; }
+.logo-2 { grid-area: menu; }
+.nav-links { grid-area: right; }
+
+  header {
+    display: grid;
+    grid-template-areas:
+    'top menu menu'
+    'top right  right';
+
   }
-  .weather-card h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  .weather-card p {
-    font-size: 18px;
-    margin: 0;
-  }
-  .info-card {
-    background-color: #FAF4D3;
-    color: #0C1618;
-    padding: 16px;
-    margin-bottom: 32px;
-  }
-  .info-card h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  .info-card p {
-    font-size: 18px;
-    margin: 0;
-  }
-  .cta {
-    background-color: #F6BE9A;
-    color: #0C1618;
-    text-align: center;
-    padding: 16px;
-    margin-bottom: 32px;
-  }
-  .cta h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  .cta a {
-    display: inline-block;
-    background-color: #004643;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 18px;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 32px;
-  }
-  .social-links a {
-    display: inline-block;
-     background-color: #004643;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    margin-left: 16px;
-    font-size: 18px;
-  }
-  .social-links a:first-child {
-    margin-left: 0;
-  }
+  
+
+
+  .coastal-area-1 { grid-area: top; }
+  .coastal-area-2 { grid-area: middle; }
+  .coastal-area-3 { grid-area: left; }
+  .coastal-area-4 { grid-area: right; }
+  .coastal-area-5 { grid-area: bottom; }
+  .coastal-title { grid-area: aside; }
+  
+    .coastal-areas{
+      display: grid;
+      grid-template-areas:
+      'aside  aside  aside'
+      'top  middle  left'
+      'right  middle  bottom';
+  
+    }
+    .image-ft{
+      width: 300px;
+      height: 300px;
+    }
 }

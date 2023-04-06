@@ -1,111 +1,85 @@
-@media (max-width: 1023px) {
-  .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
-  }
-  .header-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 16px;
-    font-size: 18px;
-  }
-  .header-nav a:first-child {
-    margin-left: 0;
-  }
-  .logo {
+@media (min-width: 768px) {
+
+  form {
     width: 100%;
     max-width: 400px;
+    font-size: 20px;
+    background-color:  #ccc;
+    margin: 0 auto;
   }
-  .menu-icon {
+
+  fieldset {
     display: block;
-    cursor: pointer;
-    margin-right: 16px;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
   }
-  .menu {
-    display: none;
-    flex-direction: column;
-    margin-bottom: 32px;
+  .logo-2 { font-size: 30px;
+    color: #F6BE9A;
+   }
+  .nav-links { 
+    font-size: 30px;
+    border-radius: 28px;
+   }
+
+#logo-1 { grid-area: top; }
+.logo-2 { grid-area: menu; }
+.nav-links { grid-area: right; }
+
+  header {
+    display: grid;
+    grid-template-areas:
+    'top menu menu'
+    'top right  right';
+
   }
-  .menu a {
-    display: block;
-    padding: 16px;
-    background-color: #0C1618;
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
+  .hamburger-menu {
+      display: none;
   }
-  .weather-card {
-    background-color: #2F2704;
-    color: #fff;
-    padding: 16px;
-    margin-bottom: 32px;
+  .nav-links {
+      display: flex;
+      gap: 20px;
   }
-  .weather-card h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
+  .nav-links.open {
+      display: flex;
+      flex-direction: row;
+      position: initial;
+      background-color: transparent;
+      padding: 0;
   }
-  .weather-card p {
-    font-size: 18px;
-    margin: 0;
+  .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
-  .info-card {
-    background-color: #FAF4D3;
-    color: #0C1618;
-    padding: 16px;
-    margin-bottom: 32px;
-  }
-  .info-card h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-  }
-  .info-card p {
-    font-size: 18px;
-    margin: 0;
-  }
-  .cta {
-    background-color: #F6BE9A;
-    color: #0C1618;
-    text-align: center;
-    padding: 16px;
-    margin-bottom: 32px;
-  }
-  .cta h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  .cta a {
-    display: inline-block;
-    background-color: #004643;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 18px;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 32px;
-  }
-  .social-links a {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    background-color: #004643;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 16px;
-  }
-  .social-links a i {
-    font-size: 24px;
-  }
-  .social-links a:last-child {
-    margin-right: 0;
-  }
+
+  .coastal-area-1 { grid-area: top; }
+  .coastal-area-2 { grid-area: middle; }
+  .coastal-area-3 { grid-area: left; }
+  .coastal-area-4 { grid-area: right; }
+  .coastal-area-5 { grid-area: bottom; }
+  .coastal-title { grid-area: aside; }
+  
+    .coastal-areas{
+      display: grid;
+      grid-template-areas:
+      'aside  aside'
+      'top    left'
+      'right  middle'
+      'bottom  bottom';
+      gap: 10px;
+      background-color: #0C1618;
+      padding: 10px;
+      color: #F6BE9A;
+    }
+    .image-ft{
+      width: 300px;
+      height: 300px;
+    }
 }
