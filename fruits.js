@@ -22,17 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
             sugar: 0,
             calories: 0
         };
-
+    
         fruits.forEach(fruit => {
-            total.carbohydrates += fruit.carbohydrates;
-            total.protein += fruit.protein;
-            total.fat += fruit.fat;
-            total.sugar += fruit.sugar;
-            total.calories += fruit.calories;
+            total.carbohydrates += fruit.nutritions.carbohydrates;
+            total.protein += fruit.nutritions.protein;
+            total.fat += fruit.nutritions.fat;
+            total.sugar += fruit.nutritions.sugar;
+            total.calories += fruit.nutritions.calories;
         });
-
+    
         return total;
     }
+    
 
     function formatDate(date) {
         return date.toISOString().split('T')[0];
